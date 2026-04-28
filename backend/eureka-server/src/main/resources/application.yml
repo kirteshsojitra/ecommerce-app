@@ -1,0 +1,23 @@
+server:
+  port: 8761  # Eureka always runs on this port
+
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  client:
+    # Eureka server should NOT register itself
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+    # Turn off in development (we explained this earlier!)
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 3000
+
+# Actuator - lets us check health of eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
